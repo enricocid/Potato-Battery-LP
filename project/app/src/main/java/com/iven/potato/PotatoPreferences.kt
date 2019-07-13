@@ -69,5 +69,4 @@ class PotatoPreferences : AppCompatActivity() {
                 .getBoolean(context.resources.getString(R.string.title_gradient), true)
         }
     }
-
 }

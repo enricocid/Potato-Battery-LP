@@ -6,6 +6,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import androidx.annotation.NonNull
 import androidx.appcompat.app.AppCompatActivity
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.PreferenceManager
@@ -63,7 +64,7 @@ class PotatoPreferences : AppCompatActivity() {
 
     companion object {
         //is gradient enabled?
-        fun isGradientEnabled(context: Context): Boolean {
+        fun isGradientEnabled(@NonNull context: Context): Boolean {
             return PreferenceManager.getDefaultSharedPreferences(context)
                 .getBoolean(context.resources.getString(R.string.title_gradient), true)
         }

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.iven.potato">
+
+    <uses-permission android:name="android.permission.SET_WALLPAPER"/>
+
+    <uses-feature
+            android:name="android.software.live_wallpaper"
+            android:required="true"/>
+
+    <application
+            android:allowBackup="true"
+            android:icon="@drawable/ic_potato"
+            android:label="@string/live_wallpaper_name"
+            android:roundIcon="@drawable/ic_potato"
+            android:supportsRtl="true"
+            android:theme="@style/AppTheme">
+        <activity
+                android:name=".PotatoPreferences"
+                android:theme="@style/AppTheme"
+                android:exported="true"
+                android:label="@string/title_potato_preferences" />
+
+        <service
+                android:name=".PotatoBatteryLP"
+                android:label="@string/live_wallpaper_name"
+                android:permission="android.permission.BIND_WALLPAPER">
+            <intent-filter>
+                <action android:name="android.service.wallpaper.WallpaperService"/>
+            </intent-filter>
+
+            <meta-data
+                    android:name="android.service.wallpaper"
+                    android:resource="@xml/potato_wallpaper"/>
+        </service>
+
+
+        <uses-library
+                android:name="com.sec.android.app.multiwindow"
+                android:required="false"/>
+
+        <meta-data
+                android:name="com.sec.android.support.multiwindow"
+                android:value="true"/>
+        <meta-data
+                android:name="com.sec.android.multiwindow.DEFAULT_SIZE_W"
+                android:value="632.0dip"/>
+        <meta-data
+                android:name="com.sec.android.multiwindow.DEFAULT_SIZE_H"
+                android:value="598.0dip"/>
+        <meta-data
+                android:name="com.sec.android.multiwindow.MINIMUM_SIZE_W"
+                android:value="632.0dip"/>
+        <meta-data
+                android:name="com.sec.android.multiwindow.MINIMUM_SIZE_H"
+                android:value="598.0dip"/>
+    </application>
+
+</manifest>

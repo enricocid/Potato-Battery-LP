@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Base theme. -->
+    <style name="AppTheme" parent="android:Theme.Material">
+        <item name="android:colorControlActivated">@color/potato</item>
+        <item name="android:colorAccent">@color/potato</item>
+        <item name="android:colorPrimary">@color/potato</item>
+        <item name="android:colorPrimaryDark">@color/potato</item>
+    </style>
+</resources>

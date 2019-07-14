@@ -6,13 +6,20 @@
 
 ###### Potato battery LP!
 ###### Current version: (1) 1.0
+###### Variants: 
+###### 1) androidx support + androidx.preference:preference (1.07 MB)
+###### 2) No additional dependencies and androidx support (0.107 KB)
 
 ![Screenshots](https://raw.githubusercontent.com/enricocid/Potato-Battery-LP/master/screens.png) 
+
+# Downloads
+
+[Download here!](https://github.com/enricocid/Potato-Battery-LP/releases)
 
 
 # Description:
 
-Minimal Potato Battery Live Wallpaper I built for my preferred Rom, [Potato Open Sauce Project!](https://potatoproject.co) (just want to have a functional potato wallpaper... also I'm kinda bored). Stroke and gradient fill are dynamic and reflect battery level:
+Minimal Potato Battery Live Wallpaper I built for my preferred Rom, [Potato Open Sauce Project](https://potatoproject.co) (just want to have a functional potato wallpaper... also I'm kinda bored). Stroke and gradient fill are dynamic and reflect battery level:
 
 
 - **Stroke** battery levels:

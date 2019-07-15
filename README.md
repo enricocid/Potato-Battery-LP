@@ -7,9 +7,9 @@
 ###### Potato battery LP!
 ###### Current version: (1) 1.0
 ###### Variants: 
-###### 1) androidx support + androidx.preference:preference ([1.07 MB)](https://github.com/enricocid/Potato-Battery-LP/releases/download/v1.0/app-release.apk))
-###### 2) no androidx support + no additional dependencies ([(0.185 MB)](https://github.com/enricocid/Potato-Battery-LP/releases/download/v1.0/app-release-vanilla.apk))
-###### 3) no androidx support + no gradient ([(0.178 MB)](https://github.com/enricocid/Potato-Battery-LP/releases/download/v1.0/app-release-nogradient.apk))
+###### 1) androidx support + androidx.preference:preference ([1.07 MB](https://github.com/enricocid/Potato-Battery-LP/releases/download/v1.0/app-release.apk))
+###### 2) no androidx support + no additional dependencies ([0.185 MB](https://github.com/enricocid/Potato-Battery-LP/releases/download/v1.0/app-release-vanilla.apk))
+###### 3) no androidx support + no gradient ([0.178 MB](https://github.com/enricocid/Potato-Battery-LP/releases/download/v1.0/app-release-nogradient.apk))
 
 ![Screenshots](https://raw.githubusercontent.com/enricocid/Potato-Battery-LP/master/screens.png) 
 

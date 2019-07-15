@@ -8,7 +8,8 @@
 ###### Current version: (1) 1.0
 ###### Variants: 
 ###### 1) androidx support + androidx.preference:preference (1.07 MB)
-###### 2) No additional dependencies and androidx support (0.107 KB)
+###### 2) androidx support + no gradient (0.180 MB)
+###### 3) No additional dependencies and androidx support (0.107 MB)
 
 ![Screenshots](https://raw.githubusercontent.com/enricocid/Potato-Battery-LP/master/screens.png) 
 

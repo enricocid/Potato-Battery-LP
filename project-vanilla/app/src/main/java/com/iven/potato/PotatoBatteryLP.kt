@@ -22,16 +22,19 @@ class PotatoBatteryLP : WallpaperService() {
     private var mDeviceWidth: Int = 0
     private var mDeviceHeight: Int = 0
 
+    private var mBatteryLevel: Int = -1
+
     //the potato battery live potato_wallpaper service and engine
     override fun onCreateEngine(): Engine {
 
-        //retrieve display specifications
-        val window = baseContext.getSystemService(Context.WINDOW_SERVICE) as WindowManager
-        val d = DisplayMetrics()
-        window.defaultDisplay.getRealMetrics(d)
-
-        mDeviceWidth = d.widthPixels
-        mDeviceHeight = d.heightPixels
+        if (baseContext != null) {
+            //retrieve display specifications
+            val window = baseContext.getSystemService(Context.WINDOW_SERVICE) as WindowManager
+            val d = DisplayMetrics()
+            window.defaultDisplay.getRealMetrics(d)
+            mDeviceWidth = d.widthPixels
+            mDeviceHeight = d.heightPixels
+        }
 
         //allocate paints, matrix and path
         mPotatoPaint = Paint()
@@ -62,6 +65,7 @@ class PotatoBatteryLP : WallpaperService() {
                 handler.post(drawRunner)
             } else {
                 handler.removeCallbacks(drawRunner)
+                mBatteryLevel = -1
             }
         }
 
@@ -69,12 +73,14 @@ class PotatoBatteryLP : WallpaperService() {
             super.onSurfaceDestroyed(holder)
             sVisible = false
             handler.removeCallbacks(drawRunner)
+            mBatteryLevel = -1
         }
 
         override fun onDestroy() {
             super.onDestroy()
             sVisible = false
             handler.removeCallbacks(drawRunner)
+            mBatteryLevel = -1
         }
 
         //draw potato according to battery level
@@ -82,34 +88,41 @@ class PotatoBatteryLP : WallpaperService() {
             val holder = surfaceHolder
             var canvas: Canvas? = null
             try {
-                canvas = holder.lockCanvas()
-                if (canvas != null && baseContext != null) {
+                //get battery level
+                val batteryManager = baseContext.getSystemService(Context.BATTERY_SERVICE) as BatteryManager
+                val batLevel = batteryManager.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY)
+                //draw only if battery level has changed
+                if (mBatteryLevel != batLevel) {
 
-                    //get battery level
-                    val batManager = baseContext.getSystemService(Context.BATTERY_SERVICE) as BatteryManager
-                    val batLevel = batManager.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY)
+                    mBatteryLevel = batLevel
 
-                    PotatoObject.draw(
-                        baseContext,
-                        canvas,
-                        mPotatoPaint,
-                        mPotatoStrokePaint,
-                        mPotatoMatrix,
-                        mPotatoPath,
-                        mDeviceWidth,
-                        mDeviceHeight,
-                        batLevel
-                    )
+                    canvas = holder.lockCanvas()
+                    if (canvas != null && baseContext != null) {
+
+                        PotatoObject.draw(
+                            baseContext,
+                            canvas,
+                            mPotatoPaint,
+                            mPotatoStrokePaint,
+                            mPotatoMatrix,
+                            mPotatoPath,
+                            mDeviceWidth,
+                            mDeviceHeight,
+                            mBatteryLevel
+                        )
+                    }
                 }
+
             } finally {
                 if (canvas != null)
                     holder.unlockCanvasAndPost(canvas)
             }
             handler.removeCallbacks(drawRunner)
 
-            if (sVisible && baseContext != null) {
-                handler.postDelayed(drawRunner, PotatoPreferences.getRefreshTime(baseContext))
-            }
+            if (baseContext != null && sVisible) handler.postDelayed(
+                drawRunner,
+                PotatoPreferences.getRefreshTime(baseContext)
+            )
         }
     }
 }

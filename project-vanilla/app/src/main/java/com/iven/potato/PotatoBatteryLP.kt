@@ -53,11 +53,11 @@ class PotatoBatteryLP : WallpaperService() {
     private inner class PotatoEngine : WallpaperService.Engine() {
 
         private val handler = Handler()
-        private var visible = true
+        private var sVisible = true
         private val drawRunner = Runnable { draw() }
 
         override fun onVisibilityChanged(visible: Boolean) {
-            this.visible = visible
+            sVisible = visible
             if (visible) {
                 handler.post(drawRunner)
             } else {
@@ -67,13 +67,13 @@ class PotatoBatteryLP : WallpaperService() {
 
         override fun onSurfaceDestroyed(holder: SurfaceHolder) {
             super.onSurfaceDestroyed(holder)
-            this.visible = false
+            sVisible = false
             handler.removeCallbacks(drawRunner)
         }
 
         override fun onDestroy() {
             super.onDestroy()
-            visible = false
+            sVisible = false
             handler.removeCallbacks(drawRunner)
         }
 
@@ -107,8 +107,8 @@ class PotatoBatteryLP : WallpaperService() {
             }
             handler.removeCallbacks(drawRunner)
 
-            if (visible) {
-                handler.postDelayed(drawRunner, 1000)
+            if (sVisible && baseContext != null) {
+                handler.postDelayed(drawRunner, PotatoPreferences.getRefreshTime(baseContext))
             }
         }
     }

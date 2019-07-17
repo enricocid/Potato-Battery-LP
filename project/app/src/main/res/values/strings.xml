@@ -6,6 +6,7 @@
     <string name="title_gradient">Gradient</string>
     <string name="sum_disable_gradient">Disable gradient</string>
     <string name="sum_enable_gradient">Enable gradient</string>
+    <string name="title_time">Refresh time (seconds)</string>
     <string name="title_dev">Developer</string>
     <string name="sum_dev">Enrico D\'Ortenzio</string>
     <string name="dev_git_link">https://github.com/enricocid</string>

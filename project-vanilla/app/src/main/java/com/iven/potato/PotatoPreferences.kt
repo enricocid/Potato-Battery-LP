@@ -10,6 +10,7 @@ import android.os.Bundle
 import android.preference.PreferenceFragment
 import android.preference.PreferenceManager
 import org.jetbrains.annotations.NotNull
+import java.util.concurrent.TimeUnit
 
 class PotatoPreferences : Activity() {
 
@@ -31,10 +32,18 @@ class PotatoPreferences : Activity() {
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
             addPreferencesFromResource(R.xml.potato_preferences)
+
+            //set refresh time preference value
+            if (context != null) {
+                val editTextPreference = preferenceManager.findPreference(context!!.getString(R.string.title_time))
+                editTextPreference?.summary = TimeUnit.MILLISECONDS.toSeconds(getRefreshTime(context)).toString()
+            }
         }
 
         override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences, key: String?) {
-            if (context != null && key == context?.resources?.getString(R.string.title_gradient)) {
+            if (context != null && key == context?.resources?.getString(R.string.title_gradient) || key == context?.resources?.getString(
+                    R.string.title_time
+                )) {
 
                 val intent = Intent(
                     WallpaperManager.ACTION_CHANGE_LIVE_WALLPAPER
@@ -68,6 +77,13 @@ class PotatoPreferences : Activity() {
         fun isGradientEnabled(@NotNull context: Context): Boolean {
             return PreferenceManager.getDefaultSharedPreferences(context)
                 .getBoolean(context.resources.getString(R.string.title_gradient), true)
+        }
+
+        //get refresh time
+        fun getRefreshTime(@NotNull context: Context): Long {
+            val refreshTime = PreferenceManager.getDefaultSharedPreferences(context)
+                .getString(context.resources.getString(R.string.title_time), 1.toString())
+            return TimeUnit.SECONDS.toMillis(refreshTime!!.toLong())
         }
     }
 }

@@ -24,6 +24,13 @@
             app:summaryOn="@string/sum_disable_gradient"
             app:summaryOff="@string/sum_enable_gradient"/>
 
+    <EditTextPreference
+            app:key="@string/title_time"
+            app:icon="@drawable/ic_timer"
+            app:defaultValue="1"
+            app:useSimpleSummaryProvider="true"
+            app:title="@string/title_time"/>
+
     <Preference
             app:icon="@drawable/ic_face"
             app:title="@string/title_dev"

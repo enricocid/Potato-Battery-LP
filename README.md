@@ -5,14 +5,13 @@
 # <img src ="https://upload.wikimedia.org/wikipedia/commons/b/b5/Kotlin-logo.png" width=24> Potato battery LP
 
 ###### Potato battery LP!
-###### Current version: (1) 1.0
+###### Current version: (2) 1.0.1
 ###### Variants: 
-###### 1) androidx support + androidx.preference:preference ([1.07 MB](https://github.com/enricocid/Potato-Battery-LP/releases/download/v1.0/app-release.apk))
-###### 2) no androidx support + no additional dependencies ([0.185 MB](https://github.com/enricocid/Potato-Battery-LP/releases/download/v1.0/app-release-vanilla.apk))
-###### 3) no androidx support + no gradient ([0.178 MB](https://github.com/enricocid/Potato-Battery-LP/releases/download/v1.0/app-release-nogradient.apk))
-###### 4) with Broadcast Receiver to monitor battery changes ([1.07 MB](https://github.com/enricocid/Potato-Battery-LP/releases/download/v1.0/app-release-br.apk))
+###### 1) androidx support + androidx.preference:preference ([1.07 MB](https://github.com/enricocid/Potato-Battery-LP/releases/download/v1.0.1/app-release.apk))
+###### 2) no androidx support + no additional dependencies ([0.188 MB](https://github.com/enricocid/Potato-Battery-LP/releases/download/v1.0.1/app-release-vanilla.apk))
+###### 3) with Broadcast Receiver to monitor battery changes ([1.07 MB](https://github.com/enricocid/Potato-Battery-LP/releases/download/v1.0/app-release-br.apk))
 
-![Screenshots](https://raw.githubusercontent.com/enricocid/Potato-Battery-LP/master/screens.png) 
+![Screenshots](https://raw.githubusercontent.com/enricocid/Potato-Battery-LP/master/screens2.png) 
 
 # Downloads
 

@@ -14,39 +14,40 @@
   ~ limitations under the License.
   -->
 
-<androidx.preference.PreferenceScreen
-        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen
+        xmlns:android="http://schemas.android.com/apk/res/android">
 
     <CheckBoxPreference
-            app:key="@string/title_gradient"
-            app:icon="@drawable/ic_gradient"
-            app:title="@string/title_gradient"
-            app:summaryOn="@string/sum_disable_gradient"
-            app:summaryOff="@string/sum_enable_gradient"/>
+            android:key="@string/title_gradient"
+            android:icon="@drawable/ic_gradient"
+            android:defaultValue="true"
+            android:title="@string/title_gradient"
+            android:summaryOn="@string/sum_disable_gradient"
+            android:summaryOff="@string/sum_enable_gradient"/>
 
     <EditTextPreference
-            app:key="@string/title_time"
-            app:icon="@drawable/ic_timer"
-            app:defaultValue="1"
-            app:useSimpleSummaryProvider="true"
-            app:title="@string/title_time"/>
+            android:key="@string/title_time"
+            android:icon="@drawable/ic_timer"
+            android:defaultValue="1"
+            android:inputType="number"
+            android:title="@string/title_time"/>
 
     <Preference
-            app:icon="@drawable/ic_face"
-            app:title="@string/title_dev"
-            app:summary="@string/sum_dev">
+            android:icon="@drawable/ic_face"
+            android:title="@string/title_dev"
+            android:summary="@string/sum_dev">
         <intent
                 android:action="android.intent.action.VIEW"
                 android:data="@string/dev_git_link"/>
     </Preference>
 
     <Preference
-            app:icon="@drawable/ic_code"
-            app:title="@string/title_version"
-            app:summary="@string/versionName">
+            android:icon="@drawable/ic_code"
+            android:title="@string/title_version"
+            android:summary="@string/versionName">
         <intent
                 android:action="android.intent.action.VIEW"
                 android:data="@string/app_git_link"/>
     </Preference>
 
-</androidx.preference.PreferenceScreen>
+</PreferenceScreen>

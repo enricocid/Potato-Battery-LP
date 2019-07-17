@@ -20,6 +20,7 @@
     <CheckBoxPreference
             app:key="@string/title_gradient"
             app:icon="@drawable/ic_gradient"
+            app:defaultValue="true"
             app:title="@string/title_gradient"
             app:summaryOn="@string/sum_disable_gradient"
             app:summaryOff="@string/sum_enable_gradient"/>

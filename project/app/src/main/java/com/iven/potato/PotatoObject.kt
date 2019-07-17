@@ -43,7 +43,7 @@ object PotatoObject {
         }
 
         //get stroke color according to the battery level
-        potatoStrokePaint.color = getBatteryColor(context, batLevel)
+        potatoStrokePaint.color = getBatteryColor(context, 5)
 
         c.scale(1.78f, 1.78f)
 
@@ -69,45 +69,20 @@ object PotatoObject {
 
     private fun getBatteryColor(@NonNull context: Context, batLevel: Int): Int {
 
-        var color = 0
-        if (batLevel <= 100)
-            color = context.getColor(R.color.green_01)
-
-        if (batLevel <= 92)
-            color = context.getColor(R.color.green_02)
-
-        if (batLevel <= 84)
-            color = context.getColor(R.color.green_03)
-
-        if (batLevel <= 76)
-            color = context.getColor(R.color.green_04)
-
-        if (batLevel <= 68)
-            color = context.getColor(R.color.yellow_01)
-
-        if (batLevel <= 60)
-            color = context.getColor(R.color.yellow_02)
-
-        if (batLevel <= 52)
-            color = context.getColor(R.color.yellow_03)
-
-        if (batLevel <= 44)
-            color = context.getColor(R.color.yellow_04)
-
-        if (batLevel <= 36)
-            color = context.getColor(R.color.orange_01)
-
-        if (batLevel <= 28)
-            color = context.getColor(R.color.orange_02)
-
-        if (batLevel <= 20)
-            color = context.getColor(R.color.orange_03)
-
-        if (batLevel <= 15)
-            color = context.getColor(R.color.orange_04)
-
-        if (batLevel <= 10)
-            color = context.getColor(R.color.red)
-        return color
+        return when (batLevel) {
+            in 93..100 -> context.getColor(R.color.green_01)
+            in 85..92 -> context.getColor(R.color.green_02)
+            in 77..84 -> context.getColor(R.color.green_03)
+            in 69..76 -> context.getColor(R.color.green_04)
+            in 61..68 -> context.getColor(R.color.yellow_01)
+            in 53..60 -> context.getColor(R.color.yellow_02)
+            in 45..52 -> context.getColor(R.color.yellow_03)
+            in 37..44 -> context.getColor(R.color.yellow_04)
+            in 29..36 -> context.getColor(R.color.orange_01)
+            in 21..28 -> context.getColor(R.color.orange_02)
+            in 16..20 -> context.getColor(R.color.orange_03)
+            in 11..15 -> context.getColor(R.color.orange_04)
+            else -> context.getColor(R.color.red)
+        }
     }
 }

@@ -11,7 +11,7 @@
 ###### 2) no androidx support + no additional dependencies ([0.188 MB](https://github.com/enricocid/Potato-Battery-LP/releases/download/v1.0.1/app-release-vanilla.apk))
 ###### 3) with Broadcast Receiver to monitor battery changes ([1.07 MB](https://github.com/enricocid/Potato-Battery-LP/releases/download/v1.0/app-release-br.apk))
 
-![Screenshots](https://raw.githubusercontent.com/enricocid/Potato-Battery-LP/master/screens2_1.png) 
+![Screenshots](https://raw.githubusercontent.com/enricocid/Potato-Battery-LP/master/screens_2_1.png) 
 
 # Downloads
 

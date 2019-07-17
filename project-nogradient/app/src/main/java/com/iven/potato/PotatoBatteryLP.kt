@@ -102,7 +102,7 @@ class PotatoBatteryLP : WallpaperService() {
             handler.removeCallbacks(drawRunner)
 
             if (visible) {
-                handler.postDelayed(drawRunner, 100)
+                handler.postDelayed(drawRunner, 1000)
             }
         }
     }

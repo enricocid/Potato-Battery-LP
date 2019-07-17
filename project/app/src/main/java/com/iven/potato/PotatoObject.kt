@@ -43,7 +43,7 @@ object PotatoObject {
         }
 
         //get stroke color according to the battery level
-        potatoStrokePaint.color = getBatteryColor(context, 5)
+        potatoStrokePaint.color = getBatteryColor(context, batLevel)
 
         c.scale(1.78f, 1.78f)
 

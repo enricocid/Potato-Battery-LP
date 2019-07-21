@@ -14,15 +14,15 @@ import android.view.WindowManager
 
 class PotatoBatteryLP : WallpaperService() {
 
-    private lateinit var mPotatoPaint: Paint
-    private lateinit var mPotatoStrokePaint: Paint
-    private lateinit var mPotatoPath: Path
-    private lateinit var mPotatoMatrix: Matrix
+    private var mPotatoPaint = Paint()
+    private var mPotatoStrokePaint = Paint()
+    private var mPotatoPath = Path()
+    private var mPotatoMatrix = Matrix()
 
-    private var mDeviceWidth: Float = 0F
-    private var mDeviceHeight: Float = 0F
+    private var mDeviceWidth = 0F
+    private var mDeviceHeight = 0F
 
-    private var mBatteryLevel: Int = -1
+    private var mBatteryLevel = -1
 
     //the potato battery live potato_wallpaper service and engine
     override fun onCreateEngine(): Engine {
@@ -35,12 +35,6 @@ class PotatoBatteryLP : WallpaperService() {
             mDeviceWidth = d.widthPixels.toFloat()
             mDeviceHeight = d.heightPixels.toFloat()
         }
-
-        //allocate paints, matrix and path
-        mPotatoPaint = Paint()
-        mPotatoStrokePaint = Paint()
-        mPotatoMatrix = Matrix()
-        mPotatoPath = Path()
 
         //set paints props
         mPotatoPaint.isAntiAlias = true

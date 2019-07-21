@@ -9,24 +9,26 @@ object PotatoObject {
     fun draw(
 
         @NonNull context: Context,
-        @NonNull c: Canvas,
+        @NonNull c: Canvas?,
         @NonNull potatoPaint: Paint,
         @NonNull potatoStrokePaint: Paint,
         @NonNull potatoMatrix: Matrix,
         @NonNull potatoPath: Path,
-        w: Int,
-        h: Int,
+        cw: Float,
+        ch: Float,
         batLevel: Int
     ) {
+        val ph = cw * 0.75F
         val ow = 200f
         val oh = 200f
 
-        val od = if (w / ow < h / oh) w / ow else h / oh
+        val od = if (cw / ow < ph / oh) cw / ow else ph / oh
 
-        c.translate((w - od * ow) / 2f, (h - od * oh) / 2f)
+        c?.translate((cw - od * ow) / 2f, (ch - od * oh) / 2f)
 
         potatoMatrix.reset()
         potatoMatrix.setScale(od, od)
+        c?.scale(1.78f, 1.78f)
 
         if (PotatoPreferences.isGradientEnabled(context)) {
             //fill the potato with a gradient dependent by the battery level (when
@@ -35,7 +37,7 @@ object PotatoObject {
                 0f,
                 0f,
                 0f,
-                h.toFloat(),
+                ch,
                 Color.BLACK,
                 Color.argb(batLevel * 255 / 100, 150, 150, 150),
                 Shader.TileMode.CLAMP
@@ -44,8 +46,6 @@ object PotatoObject {
 
         //get stroke color according to the battery level
         potatoStrokePaint.color = getBatteryColor(context, batLevel)
-
-        c.scale(1.78f, 1.78f)
 
         potatoPath.reset()
         potatoPath.moveTo(56.32f, 0.0f)
@@ -63,8 +63,8 @@ object PotatoObject {
 
         potatoPath.transform(potatoMatrix)
 
-        c.drawPath(potatoPath, potatoPaint)
-        c.drawPath(potatoPath, potatoStrokePaint)
+        c?.drawPath(potatoPath, potatoPaint)
+        c?.drawPath(potatoPath, potatoStrokePaint)
     }
 
     private fun getBatteryColor(@NonNull context: Context, batLevel: Int): Int {

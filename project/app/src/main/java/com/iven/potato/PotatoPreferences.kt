@@ -36,7 +36,8 @@ class PotatoPreferences : AppCompatActivity() {
 
             //set inputType = numbers
             if (context != null) {
-                val editTextPreference = preferenceManager.findPreference<EditTextPreference>(context!!.getString(R.string.title_time))
+                val editTextPreference =
+                    preferenceManager.findPreference<EditTextPreference>(context!!.getString(R.string.title_time))
                 editTextPreference!!.setOnBindEditTextListener {
                     it.inputType = InputType.TYPE_CLASS_NUMBER
                 }
@@ -46,7 +47,8 @@ class PotatoPreferences : AppCompatActivity() {
         override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences, key: String?) {
             if (context != null && key == context?.resources?.getString(R.string.title_gradient) || key == context?.resources?.getString(
                     R.string.title_time
-                )) {
+                )
+            ) {
                 val intent = Intent(
                     WallpaperManager.ACTION_CHANGE_LIVE_WALLPAPER
                 )

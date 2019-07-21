@@ -19,8 +19,8 @@ class PotatoBatteryLP : WallpaperService() {
     private lateinit var mPotatoPath: Path
     private lateinit var mPotatoMatrix: Matrix
 
-    private var mDeviceWidth: Int = 0
-    private var mDeviceHeight: Int = 0
+    private var mDeviceWidth: Float = 0F
+    private var mDeviceHeight: Float = 0F
 
     private var mBatteryLevel: Int = -1
 
@@ -32,8 +32,8 @@ class PotatoBatteryLP : WallpaperService() {
             val window = baseContext.getSystemService(Context.WINDOW_SERVICE) as WindowManager
             val d = DisplayMetrics()
             window.defaultDisplay.getRealMetrics(d)
-            mDeviceWidth = d.widthPixels
-            mDeviceHeight = d.heightPixels
+            mDeviceWidth = d.widthPixels.toFloat()
+            mDeviceHeight = d.heightPixels.toFloat()
         }
 
         //allocate paints, matrix and path
@@ -45,7 +45,6 @@ class PotatoBatteryLP : WallpaperService() {
         //set paints props
         mPotatoPaint.isAntiAlias = true
         mPotatoPaint.style = Paint.Style.FILL
-
         mPotatoStrokePaint.isAntiAlias = true
         mPotatoStrokePaint.style = Paint.Style.STROKE
         mPotatoStrokePaint.strokeWidth = 5F
@@ -88,16 +87,16 @@ class PotatoBatteryLP : WallpaperService() {
             val holder = surfaceHolder
             var canvas: Canvas? = null
             try {
+
                 //get battery level
                 val batteryManager = baseContext.getSystemService(Context.BATTERY_SERVICE) as BatteryManager
                 val batLevel = batteryManager.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY)
+
                 //draw only if battery level has changed
                 if (mBatteryLevel != batLevel) {
-
                     mBatteryLevel = batLevel
                     canvas = holder.lockCanvas()
                     if (canvas != null && baseContext != null) {
-
                         PotatoObject.draw(
                             baseContext,
                             canvas,

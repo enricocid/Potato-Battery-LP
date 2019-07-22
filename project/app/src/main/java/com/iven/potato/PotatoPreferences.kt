@@ -37,16 +37,16 @@ class PotatoPreferences : AppCompatActivity() {
             //set inputType = numbers
             if (context != null) {
                 val editTextPreference =
-                    preferenceManager.findPreference<EditTextPreference>(context!!.getString(R.string.title_time))
-                editTextPreference!!.setOnBindEditTextListener {
+                    preferenceManager.findPreference<EditTextPreference>(context!!.getString(R.string.time_key))
+                editTextPreference?.setOnBindEditTextListener {
                     it.inputType = InputType.TYPE_CLASS_NUMBER
                 }
             }
         }
 
         override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences, key: String?) {
-            if (context != null && key == context?.resources?.getString(R.string.title_gradient) || key == context?.resources?.getString(
-                    R.string.title_time
+            if (context != null && key == context?.resources?.getString(R.string.gradient_key) || key == context?.resources?.getString(
+                    R.string.time_key
                 )
             ) {
                 val intent = Intent(
@@ -82,13 +82,13 @@ class PotatoPreferences : AppCompatActivity() {
         //is gradient enabled?
         fun isGradientEnabled(@NonNull context: Context): Boolean {
             return PreferenceManager.getDefaultSharedPreferences(context)
-                .getBoolean(context.resources.getString(R.string.title_gradient), true)
+                .getBoolean(context.resources.getString(R.string.gradient_key), true)
         }
 
         //get refresh time
         fun getRefreshTime(@NonNull context: Context): Long {
             val refreshTime = PreferenceManager.getDefaultSharedPreferences(context)
-                .getString(context.resources.getString(R.string.title_time), 1.toString())
+                .getString(context.resources.getString(R.string.time_key), 1.toString())
             return TimeUnit.SECONDS.toMillis(refreshTime!!.toLong())
         }
     }

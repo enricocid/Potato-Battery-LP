@@ -18,7 +18,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android">
 
     <CheckBoxPreference
-            app:key="@string/title_gradient"
+            app:key="@string/gradient_key"
             app:icon="@drawable/ic_gradient"
             app:defaultValue="true"
             app:title="@string/title_gradient"
@@ -26,7 +26,7 @@
             app:summaryOff="@string/sum_enable_gradient"/>
 
     <EditTextPreference
-            app:key="@string/title_time"
+            app:key="@string/time_key"
             app:icon="@drawable/ic_timer"
             app:defaultValue="1"
             app:useSimpleSummaryProvider="true"

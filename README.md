@@ -7,7 +7,7 @@
 ###### Potato battery LP!
 ###### Current version: (5) 1.1.1
 
-![Screenshots](https://raw.githubusercontent.com/enricocid/Potato-Battery-LP/master/screens_2_5.png) 
+![Screenshots](https://raw.githubusercontent.com/enricocid/Potato-Battery-LP/master/screens_2_5-2.png) 
 
 # Downloads
 

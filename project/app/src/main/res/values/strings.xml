@@ -11,7 +11,7 @@
     <string name="sum_dev">Enrico D\'Ortenzio</string>
     <string name="dev_git_link">https://github.com/enricocid</string>
     <string name="title_version">Version info</string>
-    <string name="app_git_link">https://github.com/enricocid/Potato-Battery-LP</string>
+    <string name="app_git_link" translatable="false">https://github.com/enricocid/Potato-Battery-LP</string>
 
     <string name="gradient_key" translatable="false">gradient_key</string>
     <string name="time_key" translatable="false">time_key</string>

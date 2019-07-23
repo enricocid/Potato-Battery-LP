@@ -2,4 +2,4 @@
 <wallpaper xmlns:android="http://schemas.android.com/apk/res/android"
            android:description="@string/live_wallpaper_name"
            android:settingsActivity="com.iven.potato.PotatoPreferences"
-           android:thumbnail="@drawable/ic_potato"/>
+           android:thumbnail="@mipmap/ic_launcher_round"/>

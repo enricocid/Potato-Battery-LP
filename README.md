@@ -5,7 +5,7 @@
 # <img src ="https://upload.wikimedia.org/wikipedia/commons/b/b5/Kotlin-logo.png" width=24> Potato battery LP
 
 ###### Potato battery LP!
-###### Current version: (5) 1.1.1
+###### Current version: (6) 1.1.2
 
 ![Screenshots](https://raw.githubusercontent.com/enricocid/Potato-Battery-LP/master/screens_2_5-2.png) 
 
